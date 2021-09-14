@@ -1,15 +1,28 @@
-import { Button, Col, Form, Input, Row } from 'antd';
+import { Button, Col, Form, Input, notification, Row } from 'antd';
 import Layout, { Content } from 'antd/lib/layout/layout';
 import React from 'react';
 import '../styles/Login.css';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, CloseCircleFilled } from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';
 import Text from 'antd/lib/typography/Text';
 
 const Login = () => {
 
+	const openNotification = () => {
+		notification.open({
+			message: 'Email inválido',
+			icon: <CloseCircleFilled style={{ color: '#ff4d4f' }} />,
+			duration: 2,
+		});
+	};
+
 	const onFinish = (data) => {
-		console.log(data);
+		const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+		if (regex.test(data.email)) {
+			console.log(data)
+		} else {
+			openNotification();
+		}
 	}
 
 	return (
