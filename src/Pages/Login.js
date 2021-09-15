@@ -1,16 +1,23 @@
 import { Button, Col, Form, Input, notification, Row } from 'antd';
 import Layout, { Content } from 'antd/lib/layout/layout';
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/Login.css';
 import { UserOutlined, CloseCircleFilled } from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';
 import Text from 'antd/lib/typography/Text';
+import { useFetch } from '../services/hooks';
+import { useHistory } from 'react-router-dom';
+import DataContext from '../context/DataContext';
 
 const Login = () => {
 
+	const { setActUserId } = useContext(DataContext);
+	const users = useFetch('https://my-json-server.typicode.com/tractian/fake-api/users', []);
+	const history = useHistory();
+
 	const openNotification = () => {
 		notification.open({
-			message: 'Email inválido',
+			message: 'Email inválido!',
 			icon: <CloseCircleFilled style={{ color: '#ff4d4f' }} />,
 			duration: 2,
 		});
@@ -18,8 +25,11 @@ const Login = () => {
 
 	const onFinish = (data) => {
 		const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-		if (regex.test(data.email)) {
-			console.log(data)
+		if (regex.test(data.email) && (users.some(({ email }) => (email === data.email)))) {
+			const actualUser = users.find(({ email }) => (email === data.email));
+			setActUserId(actualUser.id);
+			localStorage.setItem('actualUser', actualUser.id);
+			history.push("home");
 		} else {
 			openNotification();
 		}

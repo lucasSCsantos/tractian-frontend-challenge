@@ -1,14 +1,18 @@
-#components-layout-demo-top-side-2 .logo {
+.logo {
   float: left;
-  width: 120px;
+  width: 150px;
   height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  margin: 16px 26px 16px -26px;
+  position: relative;
 }
 
-.ant-row-rtl #components-layout-demo-top-side-2 .logo {
-  float: right;
-  margin: 16px 0 16px 24px;
+.logo span {
+  position: absolute;
+  font-size: 17.5px;
+  top: -15px;
+  left: 1px;
+  font-weight: 900;
+  color: #fff;
 }
 
 .site-layout-background {
