@@ -1,6 +1,6 @@
 import { Button, Col, Form, Input, notification, Row } from 'antd';
 import Layout, { Content } from 'antd/lib/layout/layout';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import '../styles/Login.css';
 import { UserOutlined, CloseCircleFilled } from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';

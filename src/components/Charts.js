@@ -2,21 +2,16 @@ import React, { useContext } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import '../styles/Charts.css';
-import { useFetch } from '../services/hooks';
 import DataContext from '../context/DataContext';
 import { getData, getTotal } from '../helpers/getData';
 import { Row } from 'antd';
-import isEmpty from '../helpers/isEmpty';
 
 const Charts = () => {
-	const { actUserId, assets: data } = useContext(DataContext);
-	const userId = localStorage.getItem('actualUser');
-	const actualUser = useFetch(`https://my-json-server.typicode.com/tractian/fake-api/users/${actUserId !== 0 ? actUserId : userId}`, {});
-	const total = getTotal(data, actualUser);
-	const alert = getData(data, 'inAlert', actualUser);
-	const operation = getData(data, 'inOperation', actualUser);
-	const downtime = getData(data, 'inDowntime', actualUser);
-	console.log(data)
+	const { assets: data, actualUnit } = useContext(DataContext);
+	const total = getTotal(data, actualUnit);
+	const alert = getData(data, 'inAlert', actualUnit);
+	const operation = getData(data, 'inOperation', actualUnit);
+	const downtime = getData(data, 'inDowntime', actualUnit);
 	
 	const options = {
 	chart: {

@@ -1,4 +1,4 @@
-import { Col, Row, Spin } from 'antd';
+import { Row, Spin } from 'antd';
 import Layout, { Content } from 'antd/lib/layout/layout';
 import React from 'react';
 import '../styles/Loading.css';

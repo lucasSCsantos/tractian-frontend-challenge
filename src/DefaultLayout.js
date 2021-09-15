@@ -4,7 +4,6 @@ import { UserOutlined, LaptopOutlined } from '@ant-design/icons';
 import Routes from './Routes';
 import './styles/DefaultLayout.css';
 import DataContext from './context/DataContext';
-import { useFetch } from './services/hooks';
 import isEmpty from './helpers/isEmpty';
 import Loading from './components/Loading';
 
@@ -13,9 +12,7 @@ const { Header, Sider } = Layout;
 
 const DefaultLayout = () => {
 	const [collapsed, setCollapsed] = useState(false);
-  const { units, actUserId } = useContext(DataContext);
-  const userId = localStorage.getItem('actualUser');
-	const actualUser = useFetch(`https://my-json-server.typicode.com/tractian/fake-api/users/${actUserId !== 0 ? actUserId : userId}`, {});
+  const { units, actualUser, actualUnit, setActualUnit } = useContext(DataContext);
 	return (
     <>
     {isEmpty(actualUser) ?
@@ -33,7 +30,7 @@ const DefaultLayout = () => {
             <Menu
               mode="inline"
               style={{ height: '100%', borderRight: 0 }}
-              defaultSelectedKeys={[`${actualUser.unitId}`]}
+              defaultSelectedKeys={[`${actualUnit}`]}
               defaultOpenKeys={['sub1', 'sub2']}
             >
               <SubMenu key="sub1" icon={<UserOutlined />} title="Usuário">
@@ -41,7 +38,12 @@ const DefaultLayout = () => {
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Unidade">
                 {units.map((unit, index) => (
-                    <Menu.Item key={index + 1}>{unit.name}</Menu.Item>
+                    <Menu.Item
+                      key={index + 1}
+                      onClick={(e) => setActualUnit(+e.key)}
+                    >
+                      {unit.name}
+                    </Menu.Item>
                 ))}
               </SubMenu>
             </Menu>

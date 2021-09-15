@@ -7,7 +7,7 @@ export const useFetch = (url, initialValue) => {
 		fetch(url)
 			.then(r => r.json())
 			.then(json => setResult(json));
-	}, [])
+	}, [url])
 
 	return result;
 }

@@ -5,12 +5,9 @@ import AssetCard from '../components/AssetCard';
 import Charts from '../components/Charts';
 import DataContext from '../context/DataContext';
 import getUnitAssets from '../helpers/getUnitAssets';
-import { useFetch } from '../services/hooks';
 
 const Home = () => {
-	const { assets, actUserId } = useContext(DataContext);
-	const userId = localStorage.getItem('actualUser');
-	const actualUser = useFetch(`https://my-json-server.typicode.com/tractian/fake-api/users/${actUserId !== 0 ? actUserId : userId}`, {});
+	const { assets, actualUnit: unit } = useContext(DataContext);
 	return (
 		<Row gutter={24}>
 			<Col span={12}>
@@ -46,8 +43,8 @@ const Home = () => {
 						overflow: 'auto',
 					}}
 				>
-					{getUnitAssets(assets, actualUser.unitId).map((asset) => (
-						<AssetCard asset={asset} />
+					{getUnitAssets(assets, unit).map((asset) => (
+						<AssetCard asset={asset} responsable={false} />
 					))}
 				</Content>
 			</Col>
