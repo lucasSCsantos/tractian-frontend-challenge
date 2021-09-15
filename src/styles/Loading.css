@@ -1,0 +1,12 @@
+.loading-page-background {
+	background-image: linear-gradient(120deg, #2E61D5, #214298);
+}
+
+.loading-page-content {
+	background-color: #fff;
+	border-radius: 4px;
+	margin-top: 250px;
+	height: 24em;
+	width: 20em;
+	padding: 125px;
+}

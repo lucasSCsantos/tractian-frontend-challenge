@@ -1,0 +1,16 @@
+.highcharts-title {
+	fill: #8f8f8f !important;
+	font-weight: bold;
+	font-size: 3em;
+}
+
+.highcharts-title tspan {
+	fill: #434348;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+/* .highcharts-color-1:hover ~ .highcharts-color-2 {
+	fill: purple !important;
+	border: #434348 solid 20px;
+} */
