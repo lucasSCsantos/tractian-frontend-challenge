@@ -2,15 +2,16 @@ import { Card, Col, Image, Row } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 import Text from 'antd/lib/typography/Text';
 import { SettingOutlined, ControlOutlined, CalendarOutlined, SyncOutlined, UserOutlined } from '@ant-design/icons';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import DataContext from '../context/DataContext';
 import Paragraph from 'antd/lib/typography/Paragraph';
+import { correct, correctDate } from '../helpers/correct';
+import correctUptime from '../helpers/correctUptime';
+import responsableExist from '../helpers/responsableExist';
 
 const AssetCard = ({ asset, responsable }) => {
-	const { setActAssetId } = useContext(DataContext);
-	const [editableStr, setEditableStr] = useState('vazio');
-
+	const { setActAssetId, editableStr, setEditableStr, responsables } = useContext(DataContext);
 	const { 
 		name,
 		image,
@@ -20,7 +21,7 @@ const AssetCard = ({ asset, responsable }) => {
 		model,
 		id,
 	} = asset;
-
+	
 	return (
 		<Link
 		to={`/assets/${id}`}
@@ -55,24 +56,32 @@ const AssetCard = ({ asset, responsable }) => {
 							</Content>
 						</Col>
 						<Col span={12}>
-							<p><CalendarOutlined /><Text strong> Inicio de coleta:</Text> há {Math.round(metrics.totalUptime * 0.00136986)} mes{Math.round(metrics.totalUptime * 0.00136986) === 1 ? '' : 'es'}</p>
-							<p><SettingOutlined /><Text strong> Modelo:</Text> {model}</p>
+							<p><CalendarOutlined /><Text strong> Inicio de coleta:</Text> {correctUptime(metrics.totalUptime)}</p>
+							<p><SettingOutlined /><Text strong> Modelo:</Text> {correct(model)}</p>
 							<p><ControlOutlined /><Text strong> Sensor:</Text> {sensors[0]}</p>
-							<p><CalendarOutlined /><Text strong> Última coleta:</Text> {metrics.lastUptimeAt}</p>
-							<p><SyncOutlined /><Text strong> Status:</Text> {status}</p>
-								{responsable && 
-									<p>
-										<Row gutter={6}>
-											<Col>
-												<UserOutlined />
-												<Text strong> Responsável:</Text>
-											</Col>
-											<Col>
-												<Paragraph style={{width: 150}} editable={{ onChange: setEditableStr }}>{editableStr}</Paragraph>
-											</Col>
-										</Row>
-									</p>
-								}
+							<p><CalendarOutlined /><Text strong> Última coleta:</Text> {correctDate(metrics.lastUptimeAt)}</p>
+							<p><SyncOutlined /><Text strong> Status:</Text> {correct(status)}</p>
+							{responsable && 
+								<p>
+									<Row gutter={6}>
+										<Col>
+											<UserOutlined />
+											<Text strong> Responsável:</Text>
+										</Col>
+										<Col>
+											<Paragraph
+												style={{width: 150}}
+												editable={{ onChange: setEditableStr }}
+											>
+												{responsableExist(responsables, asset) 
+													? responsableExist(responsables, asset)
+														: editableStr
+												}
+											</Paragraph>
+										</Col>
+									</Row>
+								</p>
+							}
 						</Col>
 					</Row>
 				</Card>

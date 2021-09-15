@@ -6,19 +6,23 @@ import './styles/DefaultLayout.css';
 import DataContext from './context/DataContext';
 import isEmpty from './helpers/isEmpty';
 import Loading from './components/Loading';
+import Text from 'antd/lib/typography/Text';
 
 const { SubMenu } = Menu;
 const { Header, Sider } = Layout;
 
 const DefaultLayout = () => {
 	const [collapsed, setCollapsed] = useState(false);
-  const { units, actualUser, actualUnit, setActualUnit } = useContext(DataContext);
+  const { units, actualUser, actualUnit, setActualUnit, company } = useContext(DataContext);
+
 	return (
     <>
-    {isEmpty(actualUser) ?
+    {(!isEmpty(actualUser) && actualUnit) ?
       (<Layout>
         <Header className="header">
-          <div className="logo" />
+          <div className="logo">
+            <Text>{(company[0].name).toUpperCase()}</Text>
+          </div>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">Visão Geral</Menu.Item>
             <Menu.Item key="2">Ativos</Menu.Item>

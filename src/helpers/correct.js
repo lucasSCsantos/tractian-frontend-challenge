@@ -1,14 +1,24 @@
-const correct = (string) => {
+export const correct = (string) => {
 	switch (string) {
 		case 'maxTemp':
-			return 'Temperatura Máxima';
+			return 'Temperatura:';
 		case 'power':
-			return 'Potência';
+			return 'Potência:';
 		case 'rpm':
-			return 'RPM';
+			return 'Rotações:';
+		case 'inAlert':
+			return 'Em Alerta';
+		case 'inOperation':
+			return 'Em Operação';
+		case 'inDowntime':
+			return 'Em Parada';
 		default:
-			break;
+			return `${string[0].toUpperCase()}${string.substr(1)}`;
 	}
-}
+};
 
-export default correct;
+export const correctDate = (date) => {
+	const hora = date.substr(11,5);
+	const data = date.substr(0,10).split('-').reverse().join('/');
+	return `${data} às ${hora}`;
+};

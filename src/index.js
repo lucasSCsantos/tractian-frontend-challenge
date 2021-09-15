@@ -4,13 +4,11 @@ import App from './App';
 import 'antd/dist/antd.css';
 import { ConfigProvider } from 'antd';
 import ptBR from 'antd/lib/locale/pt_BR';
-import Provider from './context/DataProvider';
+// import Provider from './context/DataProvider';
 
 ReactDOM.render(
-  <Provider>
-    <ConfigProvider locale={ptBR}>
-      <App />
-    </ConfigProvider>
-  </Provider>,
+  <ConfigProvider locale={ptBR}>
+    <App />
+  </ConfigProvider>,
   document.getElementById('root')
 );

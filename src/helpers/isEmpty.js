@@ -1,7 +1,7 @@
 const isEmpty = (object) => {
 	return Object.values(object).length > 1 ?
-	true :
-	false;
+	false :
+	true;
 }
 
 export default isEmpty;

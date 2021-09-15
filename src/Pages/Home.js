@@ -43,8 +43,8 @@ const Home = () => {
 						overflow: 'auto',
 					}}
 				>
-					{getUnitAssets(assets, unit).map((asset) => (
-						<AssetCard asset={asset} responsable={false} />
+					{getUnitAssets(assets, unit).map((asset, index) => (
+						<AssetCard key={index} asset={asset} responsable={false} />
 					))}
 				</Content>
 			</Col>
