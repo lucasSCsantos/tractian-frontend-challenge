@@ -17,7 +17,7 @@ const Login = () => {
 
 	const openNotification = () => {
 		notification.open({
-			message: 'Email inválido!',
+			message: 'Email inválido',
 			icon: <CloseCircleFilled style={{ color: '#ff4d4f' }} />,
 			duration: 2,
 		});
@@ -26,6 +26,7 @@ const Login = () => {
 	const onFinish = (data) => {
 		const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 		if (regex.test(data.email) && (users.some(({ email }) => (email === data.email)))) {
+			console.log('entrou')
 			const actualUser = users.find(({ email }) => (email === data.email));
 			setActUserId(actualUser.id);
 			localStorage.setItem('actualUser', actualUser.id);
