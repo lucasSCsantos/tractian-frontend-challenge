@@ -19,7 +19,9 @@ const AssetSpecs = ({ asset }) => {
 		<>
 			<Row justify="center" gutter={8} align="middle" style={{marginTop: 40}}>
 				{Object.entries(specifications).map((spec, index) => (
-					<Col span={8} 
+					<Col
+						span={8} 
+						key={index}
 						style={{
 							padding: '0 50px',
 							display: 'flex',
