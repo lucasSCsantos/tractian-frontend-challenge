@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import setLocalResponsable from '../helpers/setLocalResponsable';
 import { useFetch } from '../services/hooks';
 import DataContext from './DataContext';
 
@@ -24,18 +25,13 @@ const Provider = ({ children }) => {
 	}, [actualUser, pathname])
 
 	useEffect(() => {
-		if (editableStr !== 'Delegar responsável') {
-			responsables ?
-			localStorage.setItem('responsable', JSON.stringify([
-				...responsables,
-				{ assetId: actualAsset.id, responsable: editableStr },
-			])) :
-			localStorage.setItem('responsable', JSON.stringify([
-				{ assetId: actualAsset.id, responsable: editableStr },
-			]))
-			setEditableStr('Delegar responsável');
-		}
-	}, [editableStr, actualAsset.id, responsables])
+		setLocalResponsable(
+			editableStr, 
+			responsables, 
+			actualAsset, 
+			setEditableStr,
+		)
+	}, [editableStr, actualAsset, responsables])
 	
 	const contextValue = {
 		units,

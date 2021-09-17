@@ -67,7 +67,7 @@ const DefaultLayout = () => {
               </SubMenu>
             </Menu>
           </Sider>
-          <Layout style={{ padding: '24px 24px 24px', overflowY: 'auto', height: 824 }}>
+          <Layout style={{ padding: '24px 24px 24px' }}>
             <Routes />
           </Layout>
         </Layout>

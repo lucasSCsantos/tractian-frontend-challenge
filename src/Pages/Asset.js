@@ -3,6 +3,7 @@ import { Content } from 'antd/lib/layout/layout';
 import React, { useContext } from 'react';
 import AssetCard from '../components/AssetCard';
 import AssetSpecs from '../components/AssetSpecs';
+import ServiceOrders from '../components/ServiceOrders';
 import DataContext from '../context/DataContext';
 
 const Asset = () => {
@@ -16,6 +17,7 @@ const Asset = () => {
 						style={{
 							padding: 24,
 							margin: 0,
+							height: 396,
 							marginBottom: 24,
 						}}
 					>
@@ -28,7 +30,7 @@ const Asset = () => {
 						style={{
 							padding: 24,
 							margin: 0,
-							height: 406,
+							height: 396,
 							overflow: 'auto',
 						}}
 					>
@@ -43,10 +45,10 @@ const Asset = () => {
 						style={{
 							padding: 24,
 							margin: 0,
-							height: 345,
+							height: 446,
 						}}
 					>
-						Content
+						<ServiceOrders />
 					</Content>
 				</Col>
 			</Row>

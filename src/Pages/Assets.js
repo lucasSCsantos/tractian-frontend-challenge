@@ -8,7 +8,7 @@ const Assets = () => {
 	const { assets, actualUnit: unit } = useContext(DataContext);
 
 	return (
-		<div>
+		<div style={{ overflowY: 'auto', height: 888}}>
 			{ assets &&
 				<Row gutter={24} style={{ minHeight: 776 }}>
 					{getUnitAssets(assets, unit).map((asset, index) => (

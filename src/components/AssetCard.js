@@ -30,7 +30,7 @@ const AssetCard = ({ asset, responsable }) => {
 			setActAssetId(id);
 		}}
 		>
-			{ asset && 
+			{ (asset && metrics) && 
 				<Card
 					title={name}
 					style={{
@@ -63,19 +63,20 @@ const AssetCard = ({ asset, responsable }) => {
 							<p><SyncOutlined /><Text strong> Status:</Text> {correct(status)}</p>
 							{responsable && 
 								<p>
-									<Row gutter={6}>
+									<Row gutter={6} align={'middle'}>
 										<Col>
 											<UserOutlined />
 											<Text strong> Responsável:</Text>
 										</Col>
 										<Col>
 											<Paragraph
-												style={{width: 150}}
+												style={{  width: 120, margin: 0, display: 'flex' }}
 												editable={{ onChange: setEditableStr }}
 											>
 												{responsableExist(responsables, asset) 
 													? responsableExist(responsables, asset)
-														: editableStr
+														:
+														editableStr
 												}
 											</Paragraph>
 										</Col>

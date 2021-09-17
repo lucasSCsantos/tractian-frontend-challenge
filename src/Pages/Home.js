@@ -17,7 +17,7 @@ const Home = () => {
 						padding: 24,
 						margin: 0,
 						marginBottom: 24,
-						height: 516,
+						height: 446,
 					}}
 				>
 					<Charts />
@@ -27,7 +27,7 @@ const Home = () => {
 					style={{
 						padding: 24,
 						margin: 0,
-						height: 236,
+						height: 396,
 					}}
 				>
 					Content
@@ -39,7 +39,7 @@ const Home = () => {
 					style={{
 						padding: 24,
 						margin: 0,
-						height: 776,
+						height: 826,
 						overflow: 'auto',
 					}}
 				>
