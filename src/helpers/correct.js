@@ -12,6 +12,8 @@ export const correct = (string) => {
 			return 'Em Operação';
 		case 'inDowntime':
 			return 'Em Parada';
+		case 'fan':
+			return 'Ventilador'
 		default:
 			return `${string[0].toUpperCase()}${string.substr(1)}`;
 	}
@@ -22,3 +24,16 @@ export const correctDate = (date) => {
 	const data = date.substr(0,10).split('-').reverse().join('/');
 	return `${data} às ${hora}`;
 };
+
+export const correctIcon = (spec) => {
+	switch (spec) {
+		case 'maxTemp':
+			return 0;
+		case 'rpm':
+			return 1;
+		case 'power':
+			return 2;
+		default:
+			break;
+	}
+}
