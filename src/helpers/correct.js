@@ -12,6 +12,8 @@ export const correct = (string) => {
 			return 'Em Operação';
 		case 'inDowntime':
 			return 'Em Parada';
+		case 'fan':
+			return 'Ventilador'
 		default:
 			return `${string[0].toUpperCase()}${string.substr(1)}`;
 	}

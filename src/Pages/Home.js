@@ -22,16 +22,6 @@ const Home = () => {
 				>
 					<Charts />
 				</Content>
-				<Content
-					className="site-layout-background"
-					style={{
-						padding: 24,
-						margin: 0,
-						height: 396,
-					}}
-				>
-					Content
-				</Content>
 			</Col>
 			<Col span={12}>
 				<Content
@@ -39,7 +29,7 @@ const Home = () => {
 					style={{
 						padding: 24,
 						margin: 0,
-						height: 826,
+						height: 866,
 						overflow: 'auto',
 					}}
 				>

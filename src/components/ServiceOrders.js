@@ -1,17 +1,18 @@
-import { Button, Card, Col, Row } from 'antd';
-import { PlusOutlined, CalendarOutlined, SettingOutlined, ControlOutlined } from '@ant-design/icons';
-import React, { useContext, useState } from 'react';
+import { Button, Col, Divider, Row } from 'antd';
+import { PlusOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import React, { useContext, useRef, useState } from 'react';
 import Title from 'antd/lib/typography/Title';
 import Modal from 'antd/lib/modal/Modal';
 import ModalForm from './ModalForm';
 import DataContext from '../context/DataContext';
 import assetServiceOrdersList from '../helpers/assetServiceOrdersList';
-import Text from 'antd/lib/typography/Text';
+import ServiceOrderCard from './ServiceOrderCard';
 
 const ServiceOrders = () => {
 	const { actualAsset } = useContext(DataContext);
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [disabled, setDisabled] = useState(false);
+	const listEl = useRef(null);
 
 	const serviceOrdersList = assetServiceOrdersList(actualAsset.id);
 
@@ -26,7 +27,18 @@ const ServiceOrders = () => {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+		setDisabled(false);
   };
+
+	const onNextClick = () => {
+    const imgWidth = listEl.current.offsetWidth;
+    listEl.current.scrollLeft +=  imgWidth;
+  }
+
+  const onPreviousClick = () => {
+    const imgWidth = listEl.current.offsetWidth;
+    listEl.current.scrollLeft -=  imgWidth;
+  }
 
 	return (
 		<>
@@ -43,23 +55,35 @@ const ServiceOrders = () => {
 			>
 				<ModalForm disabled={disabled} setDisabled={setDisabled} />
       </Modal>
-			<Row gutter={12}>
-				<Col>
+			<Row gutter={12} style={{ marginBottom: -15 }}>
+				<Col span={7}>
 					<Title level={3}>Ordens de Serviço</Title>
 				</Col>
-				<Col>
+				<Col span={5}>
 					<Button type="primary" shape="circle" icon={<PlusOutlined />} onClick={showModal} />
 				</Col>
+				<Col span={12} style={{ display: 'flex', justifyContent: 'flex-end' }} >
+					<Button shape="circle" icon={<LeftOutlined />} onClick={onPreviousClick} />
+					<Button shape="circle" icon={<RightOutlined />} onClick={onNextClick} />
+				</Col>
 			</Row>
-			<Row gutter={12} style={{marginTop: 25}}>
-				{serviceOrdersList && serviceOrdersList.map((order) => (
-					<Card title={order.title} style={{ width: 300 }}>
-					 	<p style={{ fontSize: 12 }} ><CalendarOutlined /><Text strong> Inicio de coleta:</Text> {order.category}</p>
-						<p><SettingOutlined /><Text strong> Modelo:</Text> {order.priority}</p>
-						<p><ControlOutlined /><Text strong> Sensor:</Text> {order.responsable}</p>
-						<p><CalendarOutlined /><Text strong> Última coleta:</Text> {order.descrption}</p>
-				 	</Card>
-				))}
+			<Divider />
+			<Row
+				gutter={12}
+				style={{ marginTop: 25, overflowX: "hidden", scrollBehavior: 'smooth' }}
+				wrap={false}
+				align="middle"
+				ref={listEl}
+			>
+				{serviceOrdersList ? serviceOrdersList.map((order, index) => (
+					<Col span={8} key={index}>
+						<ServiceOrderCard order={order} />	
+					</Col>
+				)) : 
+				<Col offset={7} style={{ marginTop: 100 }}>
+					<Title level={3} style={{ color: '#ccc' }}>Nenhuma Ordem de Serviço</Title>
+				</Col>
+				}
 			</Row>
 		</>
 	);

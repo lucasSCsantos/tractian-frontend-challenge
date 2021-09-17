@@ -36,7 +36,7 @@ const Login = () => {
 			<Content 
 				className="login-page-background"
 				style={{
-					minHeight: 888,
+					minHeight: 978,
 				}}
 			> 
 				<Row justify="center" align="center">

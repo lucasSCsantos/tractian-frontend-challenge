@@ -19,10 +19,10 @@ const DefaultLayout = () => {
   const paths = {
     1: 'home',
     2: 'assets',
-    3: 'orders',
   }
   const history = useHistory();
   const { pathname } = useLocation();
+
   const actualSelected = defaultSelectedCheck(pathname, paths);
   
 	return (
@@ -41,7 +41,6 @@ const DefaultLayout = () => {
           >
             <Menu.Item key="1">Visão Geral</Menu.Item>
             <Menu.Item key="2">Ativos</Menu.Item>
-            <Menu.Item key="3">Ordens de Serviço</Menu.Item>
           </Menu>
         </Header>
         <Layout>
@@ -60,6 +59,7 @@ const DefaultLayout = () => {
                     <Menu.Item
                       key={index + 1}
                       onClick={(e) => setActualUnit(+e.key)}
+                      disabled={pathname.includes('assets/')}
                     >
                       {unit.name}
                     </Menu.Item>

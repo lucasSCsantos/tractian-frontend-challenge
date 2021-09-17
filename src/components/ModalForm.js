@@ -24,6 +24,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 			priority,
 			responsable,
 			description,
+			date: new Date(),
 			assetId: actualAsset.id,
 		}
 		setOrdersListLocal(serviceOrder);
@@ -46,6 +47,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 			<Space direction="vertical" >
 				<Input
 					required
+					disabled={disabled}
 					style={{ width: 470 }}
 					prefix={<FormOutlined className="site-form-item-icon" />}
 					placeholder="Título"
@@ -56,6 +58,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 				/>
 				<Input
 					required
+					disabled={disabled}
 					prefix={<TagOutlined className="site-form-item-icon" />}
 					placeholder="Categoria"
 					value={category}
@@ -65,6 +68,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 				/>
 				<Input
 					required
+					disabled={disabled}
 					prefix={<ExclamationCircleOutlined className="site-form-item-icon" />}
 					placeholder="Prioridade"
 					value={priority}
@@ -74,6 +78,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 				/>
 				<Input
 					required
+					disabled={disabled}
 					prefix={<UserOutlined className="site-form-item-icon" />}
 					placeholder="Responsável"
 					value={responsable}
@@ -83,6 +88,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 				/>
 				<Input.TextArea
 					required
+					disabled={disabled}
 					placeholder="Descrição"
 					value={description}
 					onChange={({ target }) => setDescription(target.value)}
