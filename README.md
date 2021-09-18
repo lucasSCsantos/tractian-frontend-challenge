@@ -28,7 +28,7 @@ npm install
 3. Rode o app
 
 ```javascript
-npm start
+npm run dev
 ```
 
 ## Feito com
