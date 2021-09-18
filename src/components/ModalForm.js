@@ -25,7 +25,7 @@ const ModalForm = ({ setDisabled, disabled }) => {
 			responsable,
 			description,
 			date: new Date(),
-			assetId: actualAsset.id,
+			assetId: actualAsset && actualAsset.id,
 		}
 		setOrdersListLocal(serviceOrder);
 		setTitle('');
