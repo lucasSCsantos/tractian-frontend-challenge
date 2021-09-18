@@ -12,6 +12,7 @@ const ServiceOrders = () => {
 	const { actualAsset } = useContext(DataContext);
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [disabled, setDisabled] = useState(false);
+	const [att, setAtt] = useState(0);
 	const listEl = useRef(null);
 
 	const serviceOrdersList = actualAsset && assetServiceOrdersList(actualAsset.id);
@@ -77,7 +78,7 @@ const ServiceOrders = () => {
 			>
 				{serviceOrdersList ? serviceOrdersList.map((order, index) => (
 					<Col span={8} key={index}>
-						<ServiceOrderCard order={order} />	
+						<ServiceOrderCard order={order} setAtt={setAtt} att={att}/>	
 					</Col>
 				)) : 
 				<Col offset={7} style={{ marginTop: 100 }}>

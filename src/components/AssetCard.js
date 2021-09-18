@@ -21,7 +21,6 @@ const AssetCard = ({ asset, responsable }) => {
 		model,
 		id,
 	} = asset;
-	console.log(responsable);
 	
 	return (
 		<Link
