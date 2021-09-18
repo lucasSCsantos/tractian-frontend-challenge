@@ -8,10 +8,10 @@ import DataContext from '../context/DataContext';
 
 const Asset = () => {
 	const { actualAsset } = useContext(DataContext);
-	console.log(actualAsset)
+	// console.log(actualAsset)
 	return (
 		<>
-			{ actualAsset &&
+			{/* { actualAsset && */}
 			<div>
 				<Row gutter={24}>
 					<Col span={12}>
@@ -24,7 +24,7 @@ const Asset = () => {
 								marginBottom: 24,
 							}}
 						>
-							<AssetCard asset={actualAsset} responsable/>
+							{/* <AssetCard asset={actualAsset} responsable/> */}
 						</Content>
 					</Col>
 					<Col span={12}>
@@ -37,7 +37,7 @@ const Asset = () => {
 								overflow: 'auto',
 							}}
 						>
-							<AssetSpecs asset={actualAsset} />
+							{/* <AssetSpecs asset={actualAsset} /> */}
 						</Content>
 					</Col>
 				</Row>
@@ -55,7 +55,8 @@ const Asset = () => {
 						</Content>
 					</Col>
 				</Row>
-			</div> }
+			</div> 
+			{/* } */}
 		</>
 	);
 }
