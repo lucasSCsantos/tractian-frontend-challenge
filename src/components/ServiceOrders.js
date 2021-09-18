@@ -14,7 +14,7 @@ const ServiceOrders = () => {
 	const [disabled, setDisabled] = useState(false);
 	const listEl = useRef(null);
 
-	const serviceOrdersList = assetServiceOrdersList(actualAsset.id);
+	const serviceOrdersList = actualAsset && assetServiceOrdersList(actualAsset.id);
 
   const showModal = () => {
     setIsModalVisible(true);
