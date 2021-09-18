@@ -2,6 +2,8 @@
 
 Sistema de monitoramento de ativos
 
+[Link](https://lucas-tractian-challenge.herokuapp.com/)
+
 ## Recursos
 
 - Logar com os usuários já cadastrados
