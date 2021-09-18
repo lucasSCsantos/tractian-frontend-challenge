@@ -8,6 +8,7 @@ import DataContext from '../context/DataContext';
 
 const Asset = () => {
 	const { actualAsset } = useContext(DataContext);
+	console.log(actualAsset)
 	return (
 		<>
 			{ actualAsset &&
@@ -36,7 +37,7 @@ const Asset = () => {
 								overflow: 'auto',
 							}}
 						>
-							{/* <AssetSpecs asset={actualAsset} /> */}
+							<AssetSpecs asset={actualAsset} />
 						</Content>
 					</Col>
 				</Row>
@@ -50,7 +51,7 @@ const Asset = () => {
 								height: 446,
 							}}
 						>
-							{/* <ServiceOrders /> */}
+							<ServiceOrders />
 						</Content>
 					</Col>
 				</Row>
