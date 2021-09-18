@@ -36,7 +36,7 @@ const Asset = () => {
 								overflow: 'auto',
 							}}
 						>
-							<AssetSpecs asset={actualAsset} />
+							{/* <AssetSpecs asset={actualAsset} /> */}
 						</Content>
 					</Col>
 				</Row>
@@ -50,7 +50,7 @@ const Asset = () => {
 								height: 446,
 							}}
 						>
-							<ServiceOrders />
+							{/* <ServiceOrders /> */}
 						</Content>
 					</Col>
 				</Row>
