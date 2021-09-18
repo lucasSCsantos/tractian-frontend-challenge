@@ -1,13 +1,17 @@
 import { Col, Row } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AssetCard from '../components/AssetCard';
 import AssetSpecs from '../components/AssetSpecs';
 import ServiceOrders from '../components/ServiceOrders';
 import DataContext from '../context/DataContext';
 
 const Asset = () => {
-	const { actualAsset } = useContext(DataContext);
+	const [asset, setAsset] = useState(false);
+	// setTimeout(() => {
+		const { actualAsset } = useContext(DataContext);
+		setAsset(actualAsset);
+	// }, 2000);
 	// console.log(actualAsset)
 	return (
 		<>
@@ -24,7 +28,7 @@ const Asset = () => {
 								marginBottom: 24,
 							}}
 						>
-							{/* <AssetCard asset={actualAsset} responsable/> */}
+							<AssetCard asset={asset && asset} responsable/>
 						</Content>
 					</Col>
 					<Col span={12}>
