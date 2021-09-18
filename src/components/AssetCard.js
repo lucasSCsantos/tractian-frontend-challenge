@@ -61,7 +61,7 @@ const AssetCard = ({ asset, responsable }) => {
 							<p><ControlOutlined /><Text strong> Sensor:</Text> {sensors[0]}</p>
 							<p><CalendarOutlined /><Text strong> Última coleta:</Text> {correctDate(metrics.lastUptimeAt)}</p>
 							<p><SyncOutlined /><Text strong> Status:</Text> {correct(status)}</p>
-							{responsable && 
+							{/* {responsable && 
 								<p>
 									<Row gutter={6} align={'middle'}>
 										<Col>
@@ -82,7 +82,7 @@ const AssetCard = ({ asset, responsable }) => {
 										</Col>
 									</Row>
 								</p>
-							}
+							} */}
 						</Col>
 					</Row>
 				</Card>

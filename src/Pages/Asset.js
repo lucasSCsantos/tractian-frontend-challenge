@@ -24,7 +24,7 @@ const Asset = () => {
 								marginBottom: 24,
 							}}
 						>
-							{/* <AssetCard asset={actualAsset} responsable/> */}
+							<AssetCard asset={actualAsset} responsable/>
 						</Content>
 					</Col>
 					<Col span={12}>
