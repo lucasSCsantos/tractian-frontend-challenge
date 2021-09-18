@@ -14,11 +14,9 @@ app.use('/', express.static(
 app
 	.listen(process.env.PORT || 3000, (err) => {
 	if (err) { return console.log(err) }
-	console.log('working.')
 });
 
 if(process.env.NODE_ENV === 'production'){
-	//set static folder
 	app.use(express.static('client/build'));
 }
 app.get('*',(req, res) => {

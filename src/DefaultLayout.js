@@ -52,7 +52,11 @@ const DefaultLayout = () => {
               defaultOpenKeys={['sub1', 'sub2']}
             >
               <SubMenu key="sub1" icon={<UserOutlined />} title="Usuário">
-                {<Menu.Item key="0" disabled>{actualUser.name}</Menu.Item>}
+                {<Menu.Item  disabled>{actualUser.name}</Menu.Item>}
+                {<Menu.Item key="0" onClick={() => {
+                  history.push('');
+                  localStorage.clear();  
+                }}>Sair</Menu.Item>}
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Unidade">
                 {units.map((unit, index) => (

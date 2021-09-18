@@ -8,10 +8,8 @@ import DataContext from '../context/DataContext';
 
 const Asset = () => {
 	const { actualAsset } = useContext(DataContext);
-	console.log(actualAsset)
 	return (
 		<>
-			{/* { actualAsset && */}
 			<div>
 				<Row gutter={24}>
 					<Col span={12}>
@@ -55,8 +53,7 @@ const Asset = () => {
 						</Content>
 					</Col>
 				</Row>
-			</div> 
-			{/* } */}
+			</div>
 		</>
 	);
 }
