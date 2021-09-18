@@ -7,10 +7,11 @@ import ServiceOrders from '../components/ServiceOrders';
 import DataContext from '../context/DataContext';
 
 const Asset = () => {
-	const { actualAsset } = useContext(DataContext);
+	// const { actualAsset } = useContext(DataContext);
 	return (
 		<div>
-			<Row gutter={24}>
+			O problema ta em você
+			{/* <Row gutter={24}>
 				<Col span={12}>
 					<Content
 						className="site-layout-background"
@@ -51,7 +52,7 @@ const Asset = () => {
 						<ServiceOrders />
 					</Content>
 				</Col>
-			</Row>
+			</Row> */}
 		</div>
 	);
 }
