@@ -4,6 +4,16 @@ Sistema de monitoramento de ativos
 
 [Link](https://lucas-tractian-challenge.herokuapp.com/)
 
+## ⚠️⚠️ Inoformações importantes ⚠️⚠️
+
+Para acessar utilize um dos seguintes emails:
+- teste1@tractian.com
+- teste2@tractian.com
+- teste3@tractian.com
+- teste4@tractian.com
+- teste5@tractian.com
+- teste6@tractian.com
+
 ## Recursos
 
 - Logar com os usuários já cadastrados
