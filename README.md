@@ -1,8 +1,8 @@
 # Tractian Front-end Challenge
 
-### Sistema de monitoramento de ativos
+###  <p align="center">Sistema de monitoramento de ativos</p>
 
-### [Link para a aplicação](https://lucas-tractian-challenge.herokuapp.com/)
+###  <p align="center">[Link para a aplicação](https://lucas-tractian-challenge.herokuapp.com/)</p>
 
 ## ⚠️⚠️ Inoformações importantes ⚠️⚠️
 
